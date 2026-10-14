@@ -10,48 +10,38 @@ An autonomous data-engineering pipeline tracking real-time and historical air qu
 
 ---
 
-## Architecture (Phase 2)
+## End-to-End System Architecture
 
 ```mermaid
-flowchart TD
-    subgraph Data Sources
-        OpenAQ[OpenAQ API v3\n/v3/locations & /v3/sensors]
+flowchart LR
+    subgraph S1["1. Data Source"]
+        OpenAQ["OpenAQ API v3\n(TSPCB Telemetry)"]
     end
 
-    subgraph Data Pipeline Engine
-        Config[src/config.py\nDATABASE_URL & Bounds]
-        Client[src/api_client.py\nRetries & 429 Exponential Backoff]
-        Ingest[src/ingestion.py\nOrchestrator: Fetch & Upsert]
-        Validate[src/validation.py\nNull/Negative/Range Rejection]
-        Transform[src/transformation.py\nUTC Harmonization & Unit Normalization]
-        Anomaly[src/anomaly_detection.py\nRolling Median & MAD Guardrail >= 48 Obs]
+    subgraph S2["2. Pipeline Engine (Python 3.12+)"]
+        Client["API Client & Rate Limiter"]
+        Pipeline["Ingestion, Validation & Transform"]
+        Anomaly["Rolling MAD Anomaly Detection"]
+        Client --> Pipeline --> Anomaly
     end
 
-    subgraph Production Storage
-        PG[(Production Database\nPostgreSQL\nDATABASE_URL)]
-        SQLite[(Local Fallback\nSQLite\ndata/airquality.db)]
-        Migration[scripts/migrate_sqlite_to_postgres.py\nBatch Idempotent Migration]
+    subgraph S3["3. Storage (SQLAlchemy ORM)"]
+        PG[("PostgreSQL\n(Supabase Cloud)")]
+        SQLite[("SQLite\n(Local Fallback)")]
+        Migrate["scripts/migrate_sqlite_to_postgres.py"]
+        SQLite -. Idempotent Sync .-> Migrate --> PG
     end
 
-    subgraph Presentation & Automation
-        Streamlit[app.py\nStreamlit Dashboard\nInsights, Trends & Explorer]
-        GHA[GitHub Actions\n.github/workflows/daily_pipeline.yml\n07:00 IST Cron & Keep-Alive]
+    subgraph S4["4. Presentation & CI/CD"]
+        GHA["GitHub Actions\n(07:00 IST Scheduled Run)"]
+        Streamlit["Streamlit Cloud\n(Interactive Dashboard)"]
     end
 
     OpenAQ --> Client
-    Config --> Client
-    Config --> PG
-    Client --> Ingest
-    Ingest --> Validate
-    Validate --> Transform
-    Transform --> PG
-    Transform --> SQLite
-    SQLite -. Batch Copy .-> Migration
-    Migration --> PG
-    PG --> Anomaly
-    Anomaly --> PG
+    Pipeline --> PG
+    Pipeline --> SQLite
     PG --> Streamlit
-    GHA --> Ingest
+    GHA -. Triggers Daily .-> Pipeline
 ```
 
 ---
