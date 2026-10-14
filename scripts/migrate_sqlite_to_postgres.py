@@ -325,7 +325,9 @@ def main():
         sys.exit(1)
 
     if pg_url.startswith("postgres://"):
-        pg_url = pg_url.replace("postgres://", "postgresql://", 1)
+        pg_url = pg_url.replace("postgres://", "postgresql+psycopg2://", 1)
+    elif pg_url.startswith("postgresql://") and not pg_url.startswith("postgresql+"):
+        pg_url = pg_url.replace("postgresql://", "postgresql+psycopg2://", 1)
 
     logger.info("Source SQLite: %s", sqlite_file)
     # Mask password for secure logging
