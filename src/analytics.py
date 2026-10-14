@@ -183,8 +183,207 @@ def get_ingestion_history_df(session: Session, limit: int = 30) -> pd.DataFrame:
             "Inserted": r.rows_inserted,
             "Updated": r.rows_updated,
             "Rejected": r.rows_rejected,
+            "Quality Report": r.quality_report,
             "Error": r.error_message,
         }
         for r in runs
     ]
     return pd.DataFrame(data)
+
+
+def get_pipeline_health_stats(session: Session) -> Dict[str, Any]:
+    """Calculate overall pipeline run statistics and success rate."""
+    total_runs = session.query(func.count(IngestionRun.id)).scalar() or 0
+    completed_runs = (
+        session.query(func.count(IngestionRun.id))
+        .filter(IngestionRun.status == "completed")
+        .scalar()
+        or 0
+    )
+    failed_runs = (
+        session.query(func.count(IngestionRun.id))
+        .filter(IngestionRun.status == "failed")
+        .scalar()
+        or 0
+    )
+    success_rate = (completed_runs / total_runs * 100.0) if total_runs > 0 else 100.0
+
+    total_inserted = (
+        session.query(func.sum(IngestionRun.rows_inserted)).scalar() or 0
+    )
+    total_rejected = (
+        session.query(func.sum(IngestionRun.rows_rejected)).scalar() or 0
+    )
+
+    return {
+        "total_runs": total_runs,
+        "completed_runs": completed_runs,
+        "failed_runs": failed_runs,
+        "success_rate": round(success_rate, 1),
+        "total_inserted": total_inserted,
+        "total_rejected": total_rejected,
+    }
+
+
+def get_filtered_measurements_df(
+    session: Session,
+    parameters: Optional[List[str]] = None,
+    location_ids: Optional[List[int]] = None,
+    quality_flags: Optional[List[str]] = None,
+    date_from: Optional[datetime] = None,
+    date_to: Optional[datetime] = None,
+    limit: int = 5000,
+) -> pd.DataFrame:
+    """Fetch tabular measurement records with filters for the Data Explorer and CSV export."""
+    query = (
+        session.query(
+            Measurement.id,
+            Location.name.label("station_name"),
+            Measurement.parameter,
+            Measurement.value,
+            Measurement.unit,
+            Measurement.value_original,
+            Measurement.unit_original,
+            Measurement.measured_at_utc,
+            Measurement.quality_flag,
+            Measurement.source,
+        )
+        .join(Location, Measurement.location_id == Location.id)
+    )
+
+    if parameters:
+        query = query.filter(Measurement.parameter.in_(parameters))
+    if location_ids:
+        query = query.filter(Measurement.location_id.in_(location_ids))
+    if quality_flags:
+        query = query.filter(Measurement.quality_flag.in_(quality_flags))
+    if date_from:
+        query = query.filter(Measurement.measured_at_utc >= date_from)
+    if date_to:
+        query = query.filter(Measurement.measured_at_utc <= date_to)
+
+    query = query.order_by(Measurement.measured_at_utc.desc()).limit(limit)
+    results = query.all()
+
+    if not results:
+        return pd.DataFrame(
+            columns=[
+                "id", "station_name", "parameter", "value", "unit",
+                "value_original", "unit_original", "measured_at_utc",
+                "measured_at_ist", "quality_flag", "source"
+            ]
+        )
+
+    df = pd.DataFrame(results)
+    ts = pd.to_datetime(df["measured_at_utc"])
+    if ts.dt.tz is None:
+        ts = ts.dt.tz_localize("UTC")
+    df["measured_at_ist"] = ts.dt.tz_convert("Asia/Kolkata")
+    return df
+
+
+def get_automated_insights(
+    session: Session,
+    days: int = 7,
+    location_ids: Optional[List[int]] = None,
+) -> Dict[str, Any]:
+    """Generate deterministic automated analytical insights based strictly on real query results.
+
+    When data is insufficient for comparison, explicitly reports it instead of guessing.
+    """
+    now_utc = datetime.now(timezone.utc)
+    curr_cutoff = now_utc - timedelta(days=days)
+    prev_cutoff = curr_cutoff - timedelta(days=days)
+
+    # Current period readings
+    curr_q = session.query(
+        Measurement.parameter,
+        func.avg(Measurement.value).label("mean_val"),
+        func.count(Measurement.id).label("count_val"),
+    ).filter(Measurement.measured_at_utc >= curr_cutoff)
+
+    # Previous period readings
+    prev_q = session.query(
+        Measurement.parameter,
+        func.avg(Measurement.value).label("mean_val"),
+        func.count(Measurement.id).label("count_val"),
+    ).filter(
+        Measurement.measured_at_utc >= prev_cutoff,
+        Measurement.measured_at_utc < curr_cutoff,
+    )
+
+    if location_ids:
+        curr_q = curr_q.filter(Measurement.location_id.in_(location_ids))
+        prev_q = prev_q.filter(Measurement.location_id.in_(location_ids))
+
+    curr_stats = {r[0]: (float(r[1]), int(r[2])) for r in curr_q.group_by(Measurement.parameter).all()}
+    prev_stats = {r[0]: (float(r[1]), int(r[2])) for r in prev_q.group_by(Measurement.parameter).all()}
+
+    # Station coverage
+    total_stations = session.query(func.count(Location.id)).scalar() or 0
+    active_in_curr_q = session.query(func.count(func.distinct(Measurement.location_id))).filter(
+        Measurement.measured_at_utc >= curr_cutoff
+    )
+    if location_ids:
+        active_in_curr_q = active_in_curr_q.filter(Measurement.location_id.in_(location_ids))
+    active_stations_curr = active_in_curr_q.scalar() or 0
+
+    station_coverage_pct = (
+        round(active_stations_curr / total_stations * 100.0, 1)
+        if total_stations > 0
+        else 0.0
+    )
+
+    # Anomalies in period
+    anom_q = session.query(func.count(Anomaly.id), func.max(Anomaly.observed_value)).filter(
+        Anomaly.measured_at_utc >= curr_cutoff
+    )
+    if location_ids:
+        anom_q = anom_q.filter(Anomaly.location_id.in_(location_ids))
+    anom_res = anom_q.first()
+    anom_count = anom_res[0] if anom_res else 0
+    anom_max_spike = anom_res[1] if anom_res and anom_res[1] is not None else None
+
+    # Construct narrative points strictly from real data
+    insights: List[str] = []
+
+    # 1. Particulate matter comparison
+    for param, label in [("pm25", "PM2.5"), ("pm10", "PM10")]:
+        if param in curr_stats:
+            curr_mean, curr_n = curr_stats[param]
+            if param in prev_stats and prev_stats[param][1] >= 24:
+                prev_mean, prev_n = prev_stats[param]
+                pct_change = ((curr_mean - prev_mean) / prev_mean) * 100.0
+                direction = "increased by" if pct_change > 0 else "decreased by"
+                insights.append(
+                    f"**{label} Concentration**: Averaged **{curr_mean:.1f} µg/m³** over the selected window ({direction} {abs(pct_change):.1f}% compared to {prev_mean:.1f} µg/m³ in the preceding period)."
+                )
+            else:
+                insights.append(
+                    f"**{label} Concentration**: Averaged **{curr_mean:.1f} µg/m³** ({curr_n:,} observations). Insufficient historical observations in the preceding window ({prev_stats.get(param, (0, 0))[1]} records) for a comparative trend."
+                )
+
+    # 2. Coverage insight
+    insights.append(
+        f"**Station Coverage**: **{active_stations_curr} of {total_stations} stations ({station_coverage_pct}%)** recorded active telemetry during this timeframe."
+    )
+
+    # 3. Anomaly insight
+    if anom_count > 0:
+        spike_info = f" with a peak observed spike of {anom_max_spike:.1f}" if anom_max_spike else ""
+        insights.append(
+            f"**Statistical Outliers**: Flagged **{anom_count} anomalous sensor reading(s)** exceeding the 3.5× MAD threshold{spike_info}."
+        )
+    else:
+        insights.append(
+            "**Statistical Outliers**: Zero anomalies detected in this observation window; sensor concentrations remained within normal statistical dispersion."
+        )
+
+    return {
+        "days": days,
+        "insights": insights,
+        "active_stations": active_stations_curr,
+        "total_stations": total_stations,
+        "coverage_pct": station_coverage_pct,
+        "anomalies_count": anom_count,
+    }

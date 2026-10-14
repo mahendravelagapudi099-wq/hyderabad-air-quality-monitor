@@ -43,9 +43,16 @@ SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine, futu
 
 
 def init_db(target_engine: Optional[Engine] = None) -> None:
-    """Create all database tables."""
+    """Create all database tables and apply backward-compatible column migrations."""
     eng = target_engine or engine
     Base.metadata.create_all(bind=eng)
+    with eng.connect() as conn:
+        try:
+            from sqlalchemy import text
+            conn.execute(text("ALTER TABLE ingestion_runs ADD COLUMN quality_report TEXT"))
+            conn.commit()
+        except Exception:
+            pass
 
 
 @contextmanager

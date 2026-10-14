@@ -1,17 +1,22 @@
 """Streamlit Interactive Dashboard for Hyderabad Air Quality Monitor."""
 
+import json
 from datetime import datetime, timezone
+import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 import streamlit as st
 
 from src.analytics import (
     get_anomalies_df,
+    get_automated_insights,
     get_available_parameters,
+    get_filtered_measurements_df,
     get_ingestion_history_df,
     get_locations_list,
     get_measurement_timeseries,
     get_overview_metrics,
+    get_pipeline_health_stats,
 )
 from src.database import get_session, init_db
 
@@ -73,6 +78,15 @@ st.markdown(
         font-weight: 500;
     }
 
+    .insight-card {
+        background: rgba(30, 41, 59, 0.6);
+        border-left: 4px solid #38bdf8;
+        border-radius: 8px;
+        padding: 16px 20px;
+        margin: 12px 0;
+        color: #e2e8f0;
+    }
+
     .pill-active {
         display: inline-block;
         padding: 4px 12px;
@@ -121,7 +135,7 @@ init_db()
 def main():
     st.markdown('<div class="hero-title">Hyderabad Air Quality Monitor</div>', unsafe_allow_html=True)
     st.markdown(
-        '<div class="hero-sub">Autonomous Data-Engineering Pipeline Tracking Real OpenAQ v3 Observations across Telangana</div>',
+        '<div class="hero-sub">Production Data Pipeline & Dashboard Tracking Real OpenAQ v3 Observations across Telangana</div>',
         unsafe_allow_html=True,
     )
 
@@ -131,7 +145,7 @@ def main():
         all_params = get_available_parameters(session)
 
     # Sidebar Filter Controls
-    st.sidebar.header("Navigation & Filters")
+    st.sidebar.header("Global Filters")
     time_filter = st.sidebar.selectbox(
         "Time Window",
         options=["Last 24 Hours", "Last 3 Days", "Last 7 Days", "Last 30 Days", "All History"],
@@ -217,16 +231,45 @@ def main():
         return
 
     # Tabs
-    tab_trends, tab_stations, tab_anomalies, tab_health = st.tabs([
+    tab_overview, tab_trends, tab_stations, tab_explorer, tab_anomalies, tab_health = st.tabs([
+        "💡 Automated Insights",
         "📈 Pollutant Trends",
         "📍 Station Comparisons",
+        "🔍 Data Explorer",
         "⚠️ Statistical Anomalies",
         "🏥 Pipeline Health",
     ])
 
-    # 1. Trends Tab
+    # 1. Automated Insights Tab
+    with tab_overview:
+        st.subheader("Automated Telemetry Insights")
+        st.caption(
+            "Deterministic analytical summaries generated strictly from query results over the selected timeframe. "
+            "When insufficient observations exist for comparative trends, the system explicitly reports it."
+        )
+
+        with get_session() as session:
+            insights_data = get_automated_insights(
+                session=session,
+                days=selected_days if selected_days > 0 else 7,
+                location_ids=selected_loc_ids or None,
+            )
+
+        for text in insights_data["insights"]:
+            st.markdown(f'<div class="insight-card">{text}</div>', unsafe_allow_html=True)
+
+        # Quick station summary metrics
+        st.write("")
+        st.subheader("Regional Coverage Overview")
+        st.info(
+            f"Currently monitoring **{insights_data['active_stations']} out of {insights_data['total_stations']}** "
+            f"official TSPCB monitoring stations across the Hyderabad metropolitan region."
+        )
+
+    # 2. Trends Tab
     with tab_trends:
         st.subheader("Particulate Matter (PM2.5 & PM10)")
+        st.caption("PM2.5 and PM10 concentrations plotted in standard µg/m³.")
         with get_session() as session:
             df_pm = get_measurement_timeseries(
                 session=session,
@@ -256,7 +299,7 @@ def main():
             st.warning("No PM2.5 / PM10 records found for selected filter criteria.")
 
         st.subheader("Gaseous Pollutants (NO2, SO2, CO, O3)")
-        st.caption("Note: Gaseous units are plotted separately (µg/m³ vs. ppb) to avoid mixing scales.")
+        st.caption("Different units (e.g. µg/m³ vs. ppb) are isolated onto separate charts to prevent misleading scales.")
 
         with get_session() as session:
             df_gas = get_measurement_timeseries(
@@ -267,7 +310,7 @@ def main():
             )
 
         if not df_gas.empty:
-            units_present = df_gas["unit"].unique()
+            units_present = sorted(df_gas["unit"].unique())
             for u in units_present:
                 sub_df = df_gas[df_gas["unit"] == u]
                 fig_gas = px.line(
@@ -276,7 +319,7 @@ def main():
                     y="value",
                     color="parameter",
                     line_dash="location_name",
-                    title=f"Pollutants in {u}",
+                    title=f"Pollutants Measured in {u}",
                     labels={"value": f"Concentration ({u})", "measured_at_ist": "Local Time (IST)"},
                     template="plotly_dark",
                 )
@@ -289,7 +332,7 @@ def main():
         else:
             st.info("No gaseous pollutant observations found for this time range.")
 
-    # 2. Station Comparisons Tab
+    # 3. Station Comparisons Tab
     with tab_stations:
         st.subheader("Station Comparison & Daily Averages")
         with get_session() as session:
@@ -300,7 +343,6 @@ def main():
             )
 
         if not df_comp.empty:
-            # Average concentration by station
             avg_df = (
                 df_comp.groupby(["location_name", "parameter"])["value"]
                 .mean()
@@ -324,26 +366,96 @@ def main():
             st.plotly_chart(fig_bar, use_container_width=True)
 
             # Station Locations Table
-            st.subheader("Hyderabad Monitoring Network Stations")
+            st.subheader("Active Monitoring Network Stations")
             loc_df = pd.DataFrame(locations)[["name", "latitude", "longitude", "timezone"]]
             st.dataframe(loc_df, use_container_width=True)
         else:
             st.info("No comparison data available.")
 
-    # 3. Anomalies Tab
+    # 4. Data Explorer Tab (Search, Filter & CSV Export)
+    with tab_explorer:
+        st.subheader("Raw Data Explorer & Export")
+        st.caption("Filter individual measurement records across stations, pollutants, and flags, with full CSV export.")
+
+        exp_col1, exp_col2, exp_col3 = st.columns(3)
+        with exp_col1:
+            exp_stations = st.multiselect(
+                "Filter Explorer Stations",
+                options=list(loc_options.keys()),
+                default=list(loc_options.keys())[:2] if len(loc_options) >= 2 else list(loc_options.keys()),
+                key="exp_stations",
+            )
+        with exp_col2:
+            exp_params = st.multiselect(
+                "Filter Pollutants",
+                options=all_params,
+                default=["pm25", "pm10"] if "pm25" in all_params else all_params[:2],
+                key="exp_params",
+            )
+        with exp_col3:
+            exp_flags = st.multiselect(
+                "Quality Flag",
+                options=["valid", "flagged"],
+                default=["valid"],
+                key="exp_flags",
+            )
+
+        exp_loc_ids = [loc_options[name] for name in exp_stations]
+
+        with get_session() as session:
+            df_filtered = get_filtered_measurements_df(
+                session=session,
+                parameters=exp_params or None,
+                location_ids=exp_loc_ids or None,
+                quality_flags=exp_flags or None,
+                limit=5000,
+            )
+
+        st.write(f"Showing **{len(df_filtered):,}** matching measurement records (capped at 5,000 for display).")
+
+        if not df_filtered.empty:
+            csv_data = df_filtered.to_csv(index=False).encode("utf-8")
+            st.download_button(
+                label="📥 Download Filtered Data as CSV",
+                data=csv_data,
+                file_name=f"hyderabad_air_quality_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv",
+                mime="text/csv",
+            )
+            display_cols = [
+                "measured_at_ist",
+                "station_name",
+                "parameter",
+                "value",
+                "unit",
+                "value_original",
+                "unit_original",
+                "quality_flag",
+            ]
+            st.dataframe(df_filtered[display_cols], use_container_width=True)
+        else:
+            st.info("No records matched the selected explorer filters.")
+
+    # 5. Anomalies Tab
     with tab_anomalies:
         st.subheader("Flagged Statistical Anomalies")
         st.caption(
             "Anomalies are detected using rolling Median and Median Absolute Deviation (MAD > 3.5) "
             "with a strict guardrail requiring at least 48 observations before flagging. "
-            "A statistical anomaly indicates a mathematical outlier, not necessarily a health warning."
+            "Severity is classified into Low (3.5–4.5× MAD), Medium (4.5–6.0× MAD), and High (≥ 6.0× MAD). "
+            "Statistical anomalies indicate mathematical outliers, not health warnings."
         )
 
         with get_session() as session:
-            df_anom = get_anomalies_df(session, limit=150)
+            df_anom = get_anomalies_df(session, limit=200)
 
         if not df_anom.empty:
-            # Formatting for display
+            severity_filter = st.multiselect(
+                "Filter Severity",
+                options=["high", "medium", "low"],
+                default=["high", "medium", "low"],
+            )
+            filtered_anom = df_anom[df_anom["severity"].isin(severity_filter)]
+
             display_cols = [
                 "measured_at_ist",
                 "location_name",
@@ -356,7 +468,7 @@ def main():
                 "method",
             ]
             st.dataframe(
-                df_anom[display_cols].rename(
+                filtered_anom[display_cols].rename(
                     columns={
                         "measured_at_ist": "Time (IST)",
                         "location_name": "Station",
@@ -374,16 +486,30 @@ def main():
         else:
             st.success("No statistical anomalies detected in the current observation window.")
 
-    # 4. Pipeline Health Tab
+    # 6. Pipeline Health Tab
     with tab_health:
-        st.subheader("Ingestion Run Audit & Data Quality Logs")
+        st.subheader("Pipeline Health & Ingestion Audit")
+        st.caption("Audit logs tracking past runs, throughput, rejected records, and automated quality checks.")
+
         with get_session() as session:
+            health_stats = get_pipeline_health_stats(session)
             df_history = get_ingestion_history_df(session, limit=30)
 
-        if not df_history.empty:
-            st.dataframe(df_history, use_container_width=True)
+        # Health KPI cards
+        h_col1, h_col2, h_col3, h_col4 = st.columns(4)
+        with h_col1:
+            st.metric("Total Executions", f"{health_stats['total_runs']}")
+        with h_col2:
+            st.metric("Pipeline Success Rate", f"{health_stats['success_rate']}%")
+        with h_col3:
+            st.metric("Total Ingested", f"{health_stats['total_inserted']:,}")
+        with h_col4:
+            st.metric("Total Rejected Rows", f"{health_stats['total_rejected']}")
 
-            # Summary chart of rows inserted vs rejected
+        st.write("")
+
+        if not df_history.empty:
+            # Throughput chart
             fig_health = go.Figure()
             fig_health.add_trace(
                 go.Bar(
@@ -403,7 +529,7 @@ def main():
             )
             fig_health.update_layout(
                 barmode="stack",
-                title="Ingestion Throughput vs Data Quality Rejections",
+                title="Ingestion Throughput vs Rejected Records (Last 30 Runs)",
                 xaxis_title="Run ID",
                 yaxis_title="Record Count",
                 template="plotly_dark",
@@ -412,6 +538,30 @@ def main():
                 height=380,
             )
             st.plotly_chart(fig_health, use_container_width=True)
+
+            # Table of runs
+            st.subheader("Run Execution History")
+            display_runs = df_history[["Run ID", "Started (IST)", "Status", "Requests", "Received", "Inserted", "Updated", "Rejected", "Error"]]
+            st.dataframe(display_runs, use_container_width=True)
+
+            # Quality audit details
+            st.subheader("Data Quality Audit Logs")
+            latest_run = df_history.iloc[0]
+            if latest_run.get("Quality Report"):
+                try:
+                    q_data = json.loads(latest_run["Quality Report"])
+                    st.write("**Latest Run Quality Findings:**")
+                    st.write(f"- Stale stations (> 24h inactive): **{q_data.get('stale_stations_count', 0)}**")
+                    if q_data.get("drop_warning"):
+                        st.warning(f"⚠️ {q_data['drop_warning']}")
+                    else:
+                        st.success("✅ Ingestion throughput consistent (no sudden drop detected).")
+                    if q_data.get("unexpected_units_count", 0) > 0:
+                        st.warning(f"⚠️ Unexpected units found in {q_data['unexpected_units_count']} sensors.")
+                    else:
+                        st.success("✅ All sensors report standard expected units.")
+                except Exception:
+                    pass
         else:
             st.info("No ingestion audit runs logged yet.")
 

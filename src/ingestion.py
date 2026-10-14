@@ -1,8 +1,8 @@
-"""Ingestion pipeline orchestrating fetch, validation, transformation, and upserts."""
-
+import json
 import logging
 from datetime import datetime, timedelta, timezone
 from typing import Any, Dict, List, Optional
+from sqlalchemy import func
 from sqlalchemy.orm import Session
 
 from src.api_client import OpenAQClient
@@ -14,7 +14,7 @@ from src.database import (
     upsert_location,
     upsert_sensor,
 )
-from src.models import IngestionRun, Location, Sensor
+from src.models import IngestionRun, Location, Measurement, Sensor
 from src.transformation import transform_raw_measurement
 from src.validation import validate_measurement
 from src.anomaly_detection import run_anomaly_detection_pipeline
@@ -203,7 +203,10 @@ class IngestionPipeline:
             new_anomalies_count = run_anomaly_detection_pipeline(session)
             logger.info("Anomaly detection completed (%d flagged).", new_anomalies_count)
 
-            # 7. Finalize Audit Run
+            # 7. Perform Data Quality Audits
+            quality_report = self._perform_quality_audits(session, total_received)
+
+            # 8. Finalize Audit Run
             finished_at = datetime.now(timezone.utc)
             audit_run.finished_at = finished_at
             audit_run.status = "completed"
@@ -212,6 +215,7 @@ class IngestionPipeline:
             audit_run.rows_inserted = total_inserted
             audit_run.rows_updated = total_updated
             audit_run.rows_rejected = total_rejected
+            audit_run.quality_report = json.dumps(quality_report)
 
             summary = {
                 "run_id": audit_run.id,
@@ -224,6 +228,7 @@ class IngestionPipeline:
                 "rows_rejected": total_rejected,
                 "rejection_reasons": rejection_reasons,
                 "anomalies_flagged": new_anomalies_count,
+                "quality_report": quality_report,
                 "duration_seconds": round((finished_at - started_at).total_seconds(), 2),
             }
             logger.info("Ingestion completed successfully: %s", summary)
@@ -238,3 +243,83 @@ class IngestionPipeline:
             session.flush()
             logger.error("Ingestion run failed: %s", e, exc_info=True)
             raise
+
+    def _perform_quality_audits(
+        self,
+        session: Session,
+        current_rows: int,
+    ) -> Dict[str, Any]:
+        """Audit for stale observations, sudden record-count drops, and unexpected units."""
+        now_utc = datetime.now(timezone.utc)
+        stale_threshold = now_utc - timedelta(hours=24)
+
+        # 1. Stale stations check (> 24 hours without observations)
+        stale_stations = []
+        locations = session.query(Location).all()
+        for loc in locations:
+            latest = (
+                session.query(func.max(Measurement.measured_at_utc))
+                .filter(Measurement.location_id == loc.id)
+                .scalar()
+            )
+            if latest is None:
+                stale_stations.append({
+                    "id": loc.id,
+                    "name": loc.name,
+                    "reason": "No observations",
+                })
+            else:
+                if latest.tzinfo is None:
+                    latest = latest.replace(tzinfo=timezone.utc)
+                if latest < stale_threshold:
+                    diff_h = (now_utc - latest).total_seconds() / 3600.0
+                    stale_stations.append({
+                        "id": loc.id,
+                        "name": loc.name,
+                        "reason": f"Last data {diff_h:.1f}h ago",
+                    })
+
+        # 2. Sudden record-count drop check (> 50% drop compared to past completed runs)
+        past_runs = (
+            session.query(IngestionRun.rows_received)
+            .filter(
+                IngestionRun.status == "completed",
+                IngestionRun.rows_received > 0,
+            )
+            .order_by(IngestionRun.started_at.desc())
+            .limit(5)
+            .all()
+        )
+
+        drop_warning = None
+        if len(past_runs) >= 2:
+            avg_rows = sum(r[0] for r in past_runs) / len(past_runs)
+            if current_rows < 0.5 * avg_rows:
+                drop_warning = (
+                    f"Sudden record-count drop: received {current_rows} rows vs "
+                    f"historical average of {round(avg_rows, 1)} (drop > 50%)"
+                )
+
+        # 3. Unexpected units check
+        STANDARD_UNITS = {
+            "µg/m³", "ug/m3", "ppb", "ppm", "c", "deg c", "°c",
+            "%", "percent", "m/s", "deg", "particles/cm³", "particles/cm3",
+        }
+        sensors = session.query(Sensor).all()
+        unexpected_units = []
+        for s in sensors:
+            u = (s.unit or "").strip().lower()
+            if u and u not in STANDARD_UNITS:
+                unexpected_units.append({
+                    "sensor_id": s.id,
+                    "parameter": s.parameter,
+                    "unit": s.unit,
+                })
+
+        return {
+            "stale_stations_count": len(stale_stations),
+            "stale_stations": stale_stations[:10],
+            "drop_warning": drop_warning,
+            "unexpected_units_count": len(unexpected_units),
+            "unexpected_units": unexpected_units[:10],
+        }

@@ -127,6 +127,7 @@ class IngestionRun(Base):
     rows_updated = Column(Integer, default=0)
     rows_rejected = Column(Integer, default=0)
     error_message = Column(Text, nullable=True)
+    quality_report = Column(Text, nullable=True)  # JSON summary of quality audits (stale, drops, units)
 
     def __repr__(self) -> str:
         return f"<IngestionRun(id={self.id}, status='{self.status}', inserted={self.rows_inserted})>"
