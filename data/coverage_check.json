@@ -1,0 +1,2922 @@
+[
+  {
+    "id": 407,
+    "name": "Zoo Park, Hyderabad - TSPCB",
+    "coordinates": {
+      "latitude": 17.349694,
+      "longitude": 78.451437
+    },
+    "sensors": [
+      {
+        "id": 12235578,
+        "name": "co ppb",
+        "parameter": {
+          "id": 102,
+          "name": "co",
+          "units": "ppb",
+          "displayName": "CO"
+        }
+      },
+      {
+        "id": 710,
+        "name": "co \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 4,
+          "name": "co",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "CO mass"
+        }
+      },
+      {
+        "id": 12235579,
+        "name": "no ppb",
+        "parameter": {
+          "id": 24,
+          "name": "no",
+          "units": "ppb",
+          "displayName": "NO"
+        }
+      },
+      {
+        "id": 712,
+        "name": "no2 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 5,
+          "name": "no2",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "NO\u2082 mass"
+        }
+      },
+      {
+        "id": 12235580,
+        "name": "no2 ppb",
+        "parameter": {
+          "id": 15,
+          "name": "no2",
+          "units": "ppb",
+          "displayName": "NO\u2082"
+        }
+      },
+      {
+        "id": 14340861,
+        "name": "nox ppb",
+        "parameter": {
+          "id": 23,
+          "name": "nox",
+          "units": "ppb",
+          "displayName": "NOX"
+        }
+      },
+      {
+        "id": 12235581,
+        "name": "o3 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 3,
+          "name": "o3",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "O\u2083 mass"
+        }
+      },
+      {
+        "id": 711,
+        "name": "o3 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 3,
+          "name": "o3",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "O\u2083 mass"
+        }
+      },
+      {
+        "id": 12235582,
+        "name": "pm10 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 1,
+          "name": "pm10",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "PM10"
+        }
+      },
+      {
+        "id": 715,
+        "name": "pm10 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 1,
+          "name": "pm10",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "PM10"
+        }
+      },
+      {
+        "id": 714,
+        "name": "pm25 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 2,
+          "name": "pm25",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "PM2.5"
+        }
+      },
+      {
+        "id": 12235583,
+        "name": "pm25 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 2,
+          "name": "pm25",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "PM2.5"
+        }
+      },
+      {
+        "id": 12235584,
+        "name": "relativehumidity %",
+        "parameter": {
+          "id": 98,
+          "name": "relativehumidity",
+          "units": "%",
+          "displayName": "RH"
+        }
+      },
+      {
+        "id": 12235585,
+        "name": "so2 ppb",
+        "parameter": {
+          "id": 101,
+          "name": "so2",
+          "units": "ppb",
+          "displayName": "SO\u2082"
+        }
+      },
+      {
+        "id": 713,
+        "name": "so2 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 6,
+          "name": "so2",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "SO\u2082 mass"
+        }
+      },
+      {
+        "id": 12235586,
+        "name": "temperature c",
+        "parameter": {
+          "id": 100,
+          "name": "temperature",
+          "units": "c",
+          "displayName": "Temperature (C)"
+        }
+      },
+      {
+        "id": 14340862,
+        "name": "wind_direction deg",
+        "parameter": {
+          "id": 22,
+          "name": "wind_direction",
+          "units": "deg",
+          "displayName": "Wind direction"
+        }
+      },
+      {
+        "id": 14340863,
+        "name": "wind_speed m/s",
+        "parameter": {
+          "id": 34,
+          "name": "wind_speed",
+          "units": "m/s",
+          "displayName": "Wind speed"
+        }
+      }
+    ]
+  },
+  {
+    "id": 2459,
+    "name": "US Diplomatic Post: Hyderabad",
+    "coordinates": {
+      "latitude": 17.443464,
+      "longitude": 78.47489
+    },
+    "sensors": [
+      {
+        "id": 4720,
+        "name": "pm25 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 2,
+          "name": "pm25",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "PM2.5"
+        }
+      }
+    ]
+  },
+  {
+    "id": 2594,
+    "name": "Sanathnagar, Hyderabad - TSPCB",
+    "coordinates": {
+      "latitude": 17.42329722,
+      "longitude": 78.47469722
+    },
+    "sensors": [
+      {
+        "id": 5387,
+        "name": "co \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 4,
+          "name": "co",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "CO mass"
+        }
+      },
+      {
+        "id": 5389,
+        "name": "o3 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 3,
+          "name": "o3",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "O\u2083 mass"
+        }
+      },
+      {
+        "id": 9127,
+        "name": "pm25 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 2,
+          "name": "pm25",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "PM2.5"
+        }
+      },
+      {
+        "id": 9128,
+        "name": "so2 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 6,
+          "name": "so2",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "SO\u2082 mass"
+        }
+      }
+    ]
+  },
+  {
+    "id": 5599,
+    "name": "Bollaram Industrial Area, Hyderabad - TSPCB",
+    "coordinates": {
+      "latitude": 17.540891,
+      "longitude": 78.358528
+    },
+    "sensors": [
+      {
+        "id": 14820,
+        "name": "co \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 4,
+          "name": "co",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "CO mass"
+        }
+      },
+      {
+        "id": 12235395,
+        "name": "co ppb",
+        "parameter": {
+          "id": 102,
+          "name": "co",
+          "units": "ppb",
+          "displayName": "CO"
+        }
+      },
+      {
+        "id": 12235396,
+        "name": "no ppb",
+        "parameter": {
+          "id": 24,
+          "name": "no",
+          "units": "ppb",
+          "displayName": "NO"
+        }
+      },
+      {
+        "id": 14842,
+        "name": "no2 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 5,
+          "name": "no2",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "NO\u2082 mass"
+        }
+      },
+      {
+        "id": 12235397,
+        "name": "no2 ppb",
+        "parameter": {
+          "id": 15,
+          "name": "no2",
+          "units": "ppb",
+          "displayName": "NO\u2082"
+        }
+      },
+      {
+        "id": 14340833,
+        "name": "nox ppb",
+        "parameter": {
+          "id": 23,
+          "name": "nox",
+          "units": "ppb",
+          "displayName": "NOX"
+        }
+      },
+      {
+        "id": 14843,
+        "name": "o3 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 3,
+          "name": "o3",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "O\u2083 mass"
+        }
+      },
+      {
+        "id": 12235398,
+        "name": "o3 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 3,
+          "name": "o3",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "O\u2083 mass"
+        }
+      },
+      {
+        "id": 14813,
+        "name": "pm10 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 1,
+          "name": "pm10",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "PM10"
+        }
+      },
+      {
+        "id": 12235399,
+        "name": "pm10 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 1,
+          "name": "pm10",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "PM10"
+        }
+      },
+      {
+        "id": 12235400,
+        "name": "pm25 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 2,
+          "name": "pm25",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "PM2.5"
+        }
+      },
+      {
+        "id": 15217,
+        "name": "pm25 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 2,
+          "name": "pm25",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "PM2.5"
+        }
+      },
+      {
+        "id": 12235401,
+        "name": "relativehumidity %",
+        "parameter": {
+          "id": 98,
+          "name": "relativehumidity",
+          "units": "%",
+          "displayName": "RH"
+        }
+      },
+      {
+        "id": 12235402,
+        "name": "so2 ppb",
+        "parameter": {
+          "id": 101,
+          "name": "so2",
+          "units": "ppb",
+          "displayName": "SO\u2082"
+        }
+      },
+      {
+        "id": 15221,
+        "name": "so2 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 6,
+          "name": "so2",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "SO\u2082 mass"
+        }
+      },
+      {
+        "id": 12235403,
+        "name": "temperature c",
+        "parameter": {
+          "id": 100,
+          "name": "temperature",
+          "units": "c",
+          "displayName": "Temperature (C)"
+        }
+      },
+      {
+        "id": 14340834,
+        "name": "wind_direction deg",
+        "parameter": {
+          "id": 22,
+          "name": "wind_direction",
+          "units": "deg",
+          "displayName": "Wind direction"
+        }
+      },
+      {
+        "id": 14340835,
+        "name": "wind_speed m/s",
+        "parameter": {
+          "id": 34,
+          "name": "wind_speed",
+          "units": "m/s",
+          "displayName": "Wind speed"
+        }
+      }
+    ]
+  },
+  {
+    "id": 5623,
+    "name": "Central University, Hyderabad - TSPCB",
+    "coordinates": {
+      "latitude": 17.460103,
+      "longitude": 78.334361
+    },
+    "sensors": [
+      {
+        "id": 12242116,
+        "name": "co ppb",
+        "parameter": {
+          "id": 102,
+          "name": "co",
+          "units": "ppb",
+          "displayName": "CO"
+        }
+      },
+      {
+        "id": 15193,
+        "name": "co \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 4,
+          "name": "co",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "CO mass"
+        }
+      },
+      {
+        "id": 12242117,
+        "name": "no ppb",
+        "parameter": {
+          "id": 24,
+          "name": "no",
+          "units": "ppb",
+          "displayName": "NO"
+        }
+      },
+      {
+        "id": 14918,
+        "name": "no2 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 5,
+          "name": "no2",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "NO\u2082 mass"
+        }
+      },
+      {
+        "id": 12242118,
+        "name": "no2 ppb",
+        "parameter": {
+          "id": 15,
+          "name": "no2",
+          "units": "ppb",
+          "displayName": "NO\u2082"
+        }
+      },
+      {
+        "id": 14340845,
+        "name": "nox ppb",
+        "parameter": {
+          "id": 23,
+          "name": "nox",
+          "units": "ppb",
+          "displayName": "NOX"
+        }
+      },
+      {
+        "id": 12242119,
+        "name": "o3 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 3,
+          "name": "o3",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "O\u2083 mass"
+        }
+      },
+      {
+        "id": 15034,
+        "name": "o3 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 3,
+          "name": "o3",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "O\u2083 mass"
+        }
+      },
+      {
+        "id": 15046,
+        "name": "pm10 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 1,
+          "name": "pm10",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "PM10"
+        }
+      },
+      {
+        "id": 12242120,
+        "name": "pm10 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 1,
+          "name": "pm10",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "PM10"
+        }
+      },
+      {
+        "id": 12242121,
+        "name": "pm25 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 2,
+          "name": "pm25",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "PM2.5"
+        }
+      },
+      {
+        "id": 15178,
+        "name": "pm25 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 2,
+          "name": "pm25",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "PM2.5"
+        }
+      },
+      {
+        "id": 12242122,
+        "name": "relativehumidity %",
+        "parameter": {
+          "id": 98,
+          "name": "relativehumidity",
+          "units": "%",
+          "displayName": "RH"
+        }
+      },
+      {
+        "id": 15167,
+        "name": "so2 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 6,
+          "name": "so2",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "SO\u2082 mass"
+        }
+      },
+      {
+        "id": 12242123,
+        "name": "so2 ppb",
+        "parameter": {
+          "id": 101,
+          "name": "so2",
+          "units": "ppb",
+          "displayName": "SO\u2082"
+        }
+      },
+      {
+        "id": 12242124,
+        "name": "temperature c",
+        "parameter": {
+          "id": 100,
+          "name": "temperature",
+          "units": "c",
+          "displayName": "Temperature (C)"
+        }
+      },
+      {
+        "id": 14340846,
+        "name": "wind_direction deg",
+        "parameter": {
+          "id": 22,
+          "name": "wind_direction",
+          "units": "deg",
+          "displayName": "Wind direction"
+        }
+      },
+      {
+        "id": 14340847,
+        "name": "wind_speed m/s",
+        "parameter": {
+          "id": 34,
+          "name": "wind_speed",
+          "units": "m/s",
+          "displayName": "Wind speed"
+        }
+      }
+    ]
+  },
+  {
+    "id": 5624,
+    "name": "IDA Pashamylaram, Hyderabad - TSPCB",
+    "coordinates": {
+      "latitude": 17.5316895,
+      "longitude": 78.218939
+    },
+    "sensors": [
+      {
+        "id": 15228,
+        "name": "co \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 4,
+          "name": "co",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "CO mass"
+        }
+      },
+      {
+        "id": 12235500,
+        "name": "co ppb",
+        "parameter": {
+          "id": 102,
+          "name": "co",
+          "units": "ppb",
+          "displayName": "CO"
+        }
+      },
+      {
+        "id": 12235501,
+        "name": "no ppb",
+        "parameter": {
+          "id": 24,
+          "name": "no",
+          "units": "ppb",
+          "displayName": "NO"
+        }
+      },
+      {
+        "id": 15226,
+        "name": "no2 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 5,
+          "name": "no2",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "NO\u2082 mass"
+        }
+      },
+      {
+        "id": 12235502,
+        "name": "no2 ppb",
+        "parameter": {
+          "id": 15,
+          "name": "no2",
+          "units": "ppb",
+          "displayName": "NO\u2082"
+        }
+      },
+      {
+        "id": 14341845,
+        "name": "nox ppb",
+        "parameter": {
+          "id": 23,
+          "name": "nox",
+          "units": "ppb",
+          "displayName": "NOX"
+        }
+      },
+      {
+        "id": 15220,
+        "name": "o3 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 3,
+          "name": "o3",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "O\u2083 mass"
+        }
+      },
+      {
+        "id": 12235503,
+        "name": "o3 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 3,
+          "name": "o3",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "O\u2083 mass"
+        }
+      },
+      {
+        "id": 12235504,
+        "name": "pm10 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 1,
+          "name": "pm10",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "PM10"
+        }
+      },
+      {
+        "id": 15230,
+        "name": "pm10 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 1,
+          "name": "pm10",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "PM10"
+        }
+      },
+      {
+        "id": 15213,
+        "name": "pm25 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 2,
+          "name": "pm25",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "PM2.5"
+        }
+      },
+      {
+        "id": 12235505,
+        "name": "pm25 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 2,
+          "name": "pm25",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "PM2.5"
+        }
+      },
+      {
+        "id": 12235506,
+        "name": "relativehumidity %",
+        "parameter": {
+          "id": 98,
+          "name": "relativehumidity",
+          "units": "%",
+          "displayName": "RH"
+        }
+      },
+      {
+        "id": 12235507,
+        "name": "so2 ppb",
+        "parameter": {
+          "id": 101,
+          "name": "so2",
+          "units": "ppb",
+          "displayName": "SO\u2082"
+        }
+      },
+      {
+        "id": 14928,
+        "name": "so2 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 6,
+          "name": "so2",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "SO\u2082 mass"
+        }
+      },
+      {
+        "id": 12235508,
+        "name": "temperature c",
+        "parameter": {
+          "id": 100,
+          "name": "temperature",
+          "units": "c",
+          "displayName": "Temperature (C)"
+        }
+      },
+      {
+        "id": 14341846,
+        "name": "wind_direction deg",
+        "parameter": {
+          "id": 22,
+          "name": "wind_direction",
+          "units": "deg",
+          "displayName": "Wind direction"
+        }
+      },
+      {
+        "id": 14341847,
+        "name": "wind_speed m/s",
+        "parameter": {
+          "id": 34,
+          "name": "wind_speed",
+          "units": "m/s",
+          "displayName": "Wind speed"
+        }
+      }
+    ]
+  },
+  {
+    "id": 5645,
+    "name": "ICRISAT Patancheru, Hyderabad - TSPCB",
+    "coordinates": {
+      "latitude": 17.5184,
+      "longitude": 78.278777
+    },
+    "sensors": [
+      {
+        "id": 12235404,
+        "name": "co ppb",
+        "parameter": {
+          "id": 102,
+          "name": "co",
+          "units": "ppb",
+          "displayName": "CO"
+        }
+      },
+      {
+        "id": 15037,
+        "name": "co \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 4,
+          "name": "co",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "CO mass"
+        }
+      },
+      {
+        "id": 12235405,
+        "name": "no ppb",
+        "parameter": {
+          "id": 24,
+          "name": "no",
+          "units": "ppb",
+          "displayName": "NO"
+        }
+      },
+      {
+        "id": 12235406,
+        "name": "no2 ppb",
+        "parameter": {
+          "id": 15,
+          "name": "no2",
+          "units": "ppb",
+          "displayName": "NO\u2082"
+        }
+      },
+      {
+        "id": 15173,
+        "name": "no2 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 5,
+          "name": "no2",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "NO\u2082 mass"
+        }
+      },
+      {
+        "id": 14340836,
+        "name": "nox ppb",
+        "parameter": {
+          "id": 23,
+          "name": "nox",
+          "units": "ppb",
+          "displayName": "NOX"
+        }
+      },
+      {
+        "id": 12235407,
+        "name": "o3 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 3,
+          "name": "o3",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "O\u2083 mass"
+        }
+      },
+      {
+        "id": 15188,
+        "name": "o3 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 3,
+          "name": "o3",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "O\u2083 mass"
+        }
+      },
+      {
+        "id": 12235408,
+        "name": "pm10 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 1,
+          "name": "pm10",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "PM10"
+        }
+      },
+      {
+        "id": 15267,
+        "name": "pm10 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 1,
+          "name": "pm10",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "PM10"
+        }
+      },
+      {
+        "id": 15254,
+        "name": "pm25 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 2,
+          "name": "pm25",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "PM2.5"
+        }
+      },
+      {
+        "id": 12235409,
+        "name": "pm25 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 2,
+          "name": "pm25",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "PM2.5"
+        }
+      },
+      {
+        "id": 12235410,
+        "name": "relativehumidity %",
+        "parameter": {
+          "id": 98,
+          "name": "relativehumidity",
+          "units": "%",
+          "displayName": "RH"
+        }
+      },
+      {
+        "id": 12235411,
+        "name": "so2 ppb",
+        "parameter": {
+          "id": 101,
+          "name": "so2",
+          "units": "ppb",
+          "displayName": "SO\u2082"
+        }
+      },
+      {
+        "id": 15233,
+        "name": "so2 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 6,
+          "name": "so2",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "SO\u2082 mass"
+        }
+      },
+      {
+        "id": 12235412,
+        "name": "temperature c",
+        "parameter": {
+          "id": 100,
+          "name": "temperature",
+          "units": "c",
+          "displayName": "Temperature (C)"
+        }
+      },
+      {
+        "id": 14340837,
+        "name": "wind_direction deg",
+        "parameter": {
+          "id": 22,
+          "name": "wind_direction",
+          "units": "deg",
+          "displayName": "Wind direction"
+        }
+      },
+      {
+        "id": 14340838,
+        "name": "wind_speed m/s",
+        "parameter": {
+          "id": 34,
+          "name": "wind_speed",
+          "units": "m/s",
+          "displayName": "Wind speed"
+        }
+      }
+    ]
+  },
+  {
+    "id": 5647,
+    "name": "Sanathnagar, Hyderabad - TSPCB",
+    "coordinates": {
+      "latitude": 17.4559458,
+      "longitude": 78.4332152
+    },
+    "sensors": [
+      {
+        "id": 15049,
+        "name": "co \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 4,
+          "name": "co",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "CO mass"
+        }
+      },
+      {
+        "id": 12242125,
+        "name": "co ppb",
+        "parameter": {
+          "id": 102,
+          "name": "co",
+          "units": "ppb",
+          "displayName": "CO"
+        }
+      },
+      {
+        "id": 12242126,
+        "name": "no ppb",
+        "parameter": {
+          "id": 24,
+          "name": "no",
+          "units": "ppb",
+          "displayName": "NO"
+        }
+      },
+      {
+        "id": 12242127,
+        "name": "no2 ppb",
+        "parameter": {
+          "id": 15,
+          "name": "no2",
+          "units": "ppb",
+          "displayName": "NO\u2082"
+        }
+      },
+      {
+        "id": 15051,
+        "name": "no2 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 5,
+          "name": "no2",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "NO\u2082 mass"
+        }
+      },
+      {
+        "id": 14340855,
+        "name": "nox ppb",
+        "parameter": {
+          "id": 23,
+          "name": "nox",
+          "units": "ppb",
+          "displayName": "NOX"
+        }
+      },
+      {
+        "id": 12242128,
+        "name": "o3 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 3,
+          "name": "o3",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "O\u2083 mass"
+        }
+      },
+      {
+        "id": 15058,
+        "name": "o3 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 3,
+          "name": "o3",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "O\u2083 mass"
+        }
+      },
+      {
+        "id": 15065,
+        "name": "pm25 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 2,
+          "name": "pm25",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "PM2.5"
+        }
+      },
+      {
+        "id": 12242129,
+        "name": "pm25 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 2,
+          "name": "pm25",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "PM2.5"
+        }
+      },
+      {
+        "id": 12242130,
+        "name": "relativehumidity %",
+        "parameter": {
+          "id": 98,
+          "name": "relativehumidity",
+          "units": "%",
+          "displayName": "RH"
+        }
+      },
+      {
+        "id": 12242131,
+        "name": "so2 ppb",
+        "parameter": {
+          "id": 101,
+          "name": "so2",
+          "units": "ppb",
+          "displayName": "SO\u2082"
+        }
+      },
+      {
+        "id": 15061,
+        "name": "so2 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 6,
+          "name": "so2",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "SO\u2082 mass"
+        }
+      },
+      {
+        "id": 12242132,
+        "name": "temperature c",
+        "parameter": {
+          "id": 100,
+          "name": "temperature",
+          "units": "c",
+          "displayName": "Temperature (C)"
+        }
+      },
+      {
+        "id": 14340856,
+        "name": "wind_direction deg",
+        "parameter": {
+          "id": 22,
+          "name": "wind_direction",
+          "units": "deg",
+          "displayName": "Wind direction"
+        }
+      },
+      {
+        "id": 14340857,
+        "name": "wind_speed m/s",
+        "parameter": {
+          "id": 34,
+          "name": "wind_speed",
+          "units": "m/s",
+          "displayName": "Wind speed"
+        }
+      }
+    ]
+  },
+  {
+    "id": 7583,
+    "name": "ICRISAT Patancheru, Hyderabad - TSPCB",
+    "coordinates": {
+      "latitude": 17.305178,
+      "longitude": 78.162863
+    },
+    "sensors": [
+      {
+        "id": 22015,
+        "name": "co \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 4,
+          "name": "co",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "CO mass"
+        }
+      },
+      {
+        "id": 22014,
+        "name": "no2 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 5,
+          "name": "no2",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "NO\u2082 mass"
+        }
+      },
+      {
+        "id": 22019,
+        "name": "o3 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 3,
+          "name": "o3",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "O\u2083 mass"
+        }
+      },
+      {
+        "id": 22018,
+        "name": "pm10 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 1,
+          "name": "pm10",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "PM10"
+        }
+      },
+      {
+        "id": 22017,
+        "name": "pm25 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 2,
+          "name": "pm25",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "PM2.5"
+        }
+      },
+      {
+        "id": 22016,
+        "name": "so2 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 6,
+          "name": "so2",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "SO\u2082 mass"
+        }
+      }
+    ]
+  },
+  {
+    "id": 8557,
+    "name": "Hyderabad",
+    "coordinates": {
+      "latitude": 17.38405,
+      "longitude": 78.45636
+    },
+    "sensors": [
+      {
+        "id": 24857,
+        "name": "pm25 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 2,
+          "name": "pm25",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "PM2.5"
+        }
+      }
+    ]
+  },
+  {
+    "id": 10897,
+    "name": "ICRISAT Patancheru, Hyderabad - TSPCB",
+    "coordinates": {
+      "latitude": 17.5184,
+      "longitude": 78.278777
+    },
+    "sensors": [
+      {
+        "id": 36520,
+        "name": "co \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 4,
+          "name": "co",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "CO mass"
+        }
+      },
+      {
+        "id": 36692,
+        "name": "no2 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 5,
+          "name": "no2",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "NO\u2082 mass"
+        }
+      },
+      {
+        "id": 36691,
+        "name": "o3 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 3,
+          "name": "o3",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "O\u2083 mass"
+        }
+      },
+      {
+        "id": 36689,
+        "name": "pm10 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 1,
+          "name": "pm10",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "PM10"
+        }
+      },
+      {
+        "id": 36686,
+        "name": "pm25 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 2,
+          "name": "pm25",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "PM2.5"
+        }
+      },
+      {
+        "id": 36683,
+        "name": "so2 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 6,
+          "name": "so2",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "SO\u2082 mass"
+        }
+      }
+    ]
+  },
+  {
+    "id": 344103,
+    "name": "ECIL Kapra, Hyderabad - TSPCB",
+    "coordinates": {
+      "latitude": 17.470431,
+      "longitude": 78.566959
+    },
+    "sensors": [
+      {
+        "id": 1960397,
+        "name": "co \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 4,
+          "name": "co",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "CO mass"
+        }
+      },
+      {
+        "id": 12237093,
+        "name": "co ppb",
+        "parameter": {
+          "id": 102,
+          "name": "co",
+          "units": "ppb",
+          "displayName": "CO"
+        }
+      },
+      {
+        "id": 12237094,
+        "name": "no ppb",
+        "parameter": {
+          "id": 24,
+          "name": "no",
+          "units": "ppb",
+          "displayName": "NO"
+        }
+      },
+      {
+        "id": 12237095,
+        "name": "no2 ppb",
+        "parameter": {
+          "id": 15,
+          "name": "no2",
+          "units": "ppb",
+          "displayName": "NO\u2082"
+        }
+      },
+      {
+        "id": 1960403,
+        "name": "no2 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 5,
+          "name": "no2",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "NO\u2082 mass"
+        }
+      },
+      {
+        "id": 14341202,
+        "name": "nox ppb",
+        "parameter": {
+          "id": 23,
+          "name": "nox",
+          "units": "ppb",
+          "displayName": "NOX"
+        }
+      },
+      {
+        "id": 12237096,
+        "name": "o3 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 3,
+          "name": "o3",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "O\u2083 mass"
+        }
+      },
+      {
+        "id": 1960395,
+        "name": "o3 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 3,
+          "name": "o3",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "O\u2083 mass"
+        }
+      },
+      {
+        "id": 1960400,
+        "name": "pm10 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 1,
+          "name": "pm10",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "PM10"
+        }
+      },
+      {
+        "id": 12237097,
+        "name": "pm10 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 1,
+          "name": "pm10",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "PM10"
+        }
+      },
+      {
+        "id": 1960399,
+        "name": "pm25 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 2,
+          "name": "pm25",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "PM2.5"
+        }
+      },
+      {
+        "id": 12237098,
+        "name": "pm25 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 2,
+          "name": "pm25",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "PM2.5"
+        }
+      },
+      {
+        "id": 12237099,
+        "name": "relativehumidity %",
+        "parameter": {
+          "id": 98,
+          "name": "relativehumidity",
+          "units": "%",
+          "displayName": "RH"
+        }
+      },
+      {
+        "id": 12237100,
+        "name": "so2 ppb",
+        "parameter": {
+          "id": 101,
+          "name": "so2",
+          "units": "ppb",
+          "displayName": "SO\u2082"
+        }
+      },
+      {
+        "id": 1960401,
+        "name": "so2 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 6,
+          "name": "so2",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "SO\u2082 mass"
+        }
+      },
+      {
+        "id": 12237101,
+        "name": "temperature c",
+        "parameter": {
+          "id": 100,
+          "name": "temperature",
+          "units": "c",
+          "displayName": "Temperature (C)"
+        }
+      },
+      {
+        "id": 14341203,
+        "name": "wind_direction deg",
+        "parameter": {
+          "id": 22,
+          "name": "wind_direction",
+          "units": "deg",
+          "displayName": "Wind direction"
+        }
+      },
+      {
+        "id": 14341204,
+        "name": "wind_speed m/s",
+        "parameter": {
+          "id": 34,
+          "name": "wind_speed",
+          "units": "m/s",
+          "displayName": "Wind speed"
+        }
+      }
+    ]
+  },
+  {
+    "id": 344104,
+    "name": "Kompally Municipal Office, Hyderabad - TSPCB",
+    "coordinates": {
+      "latitude": 17.544898999999997,
+      "longitude": 78.486949
+    },
+    "sensors": [
+      {
+        "id": 12237120,
+        "name": "co ppb",
+        "parameter": {
+          "id": 102,
+          "name": "co",
+          "units": "ppb",
+          "displayName": "CO"
+        }
+      },
+      {
+        "id": 1960396,
+        "name": "co \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 4,
+          "name": "co",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "CO mass"
+        }
+      },
+      {
+        "id": 12237121,
+        "name": "no ppb",
+        "parameter": {
+          "id": 24,
+          "name": "no",
+          "units": "ppb",
+          "displayName": "NO"
+        }
+      },
+      {
+        "id": 1960398,
+        "name": "no2 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 5,
+          "name": "no2",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "NO\u2082 mass"
+        }
+      },
+      {
+        "id": 12237122,
+        "name": "no2 ppb",
+        "parameter": {
+          "id": 15,
+          "name": "no2",
+          "units": "ppb",
+          "displayName": "NO\u2082"
+        }
+      },
+      {
+        "id": 14341208,
+        "name": "nox ppb",
+        "parameter": {
+          "id": 23,
+          "name": "nox",
+          "units": "ppb",
+          "displayName": "NOX"
+        }
+      },
+      {
+        "id": 12237123,
+        "name": "o3 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 3,
+          "name": "o3",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "O\u2083 mass"
+        }
+      },
+      {
+        "id": 1960402,
+        "name": "o3 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 3,
+          "name": "o3",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "O\u2083 mass"
+        }
+      },
+      {
+        "id": 1960404,
+        "name": "pm10 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 1,
+          "name": "pm10",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "PM10"
+        }
+      },
+      {
+        "id": 12237124,
+        "name": "pm10 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 1,
+          "name": "pm10",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "PM10"
+        }
+      },
+      {
+        "id": 12237125,
+        "name": "pm25 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 2,
+          "name": "pm25",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "PM2.5"
+        }
+      },
+      {
+        "id": 1960394,
+        "name": "pm25 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 2,
+          "name": "pm25",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "PM2.5"
+        }
+      },
+      {
+        "id": 12237126,
+        "name": "relativehumidity %",
+        "parameter": {
+          "id": 98,
+          "name": "relativehumidity",
+          "units": "%",
+          "displayName": "RH"
+        }
+      },
+      {
+        "id": 1960405,
+        "name": "so2 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 6,
+          "name": "so2",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "SO\u2082 mass"
+        }
+      },
+      {
+        "id": 12237127,
+        "name": "so2 ppb",
+        "parameter": {
+          "id": 101,
+          "name": "so2",
+          "units": "ppb",
+          "displayName": "SO\u2082"
+        }
+      },
+      {
+        "id": 12237128,
+        "name": "temperature c",
+        "parameter": {
+          "id": 100,
+          "name": "temperature",
+          "units": "c",
+          "displayName": "Temperature (C)"
+        }
+      },
+      {
+        "id": 14341209,
+        "name": "wind_direction deg",
+        "parameter": {
+          "id": 22,
+          "name": "wind_direction",
+          "units": "deg",
+          "displayName": "Wind direction"
+        }
+      },
+      {
+        "id": 14341210,
+        "name": "wind_speed m/s",
+        "parameter": {
+          "id": 34,
+          "name": "wind_speed",
+          "units": "m/s",
+          "displayName": "Wind speed"
+        }
+      }
+    ]
+  },
+  {
+    "id": 344140,
+    "name": "Somajiguda, Hyderabad - TSPCB",
+    "coordinates": {
+      "latitude": 17.417094,
+      "longitude": 78.457437
+    },
+    "sensors": [
+      {
+        "id": 12237111,
+        "name": "co ppb",
+        "parameter": {
+          "id": 102,
+          "name": "co",
+          "units": "ppb",
+          "displayName": "CO"
+        }
+      },
+      {
+        "id": 1960604,
+        "name": "co \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 4,
+          "name": "co",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "CO mass"
+        }
+      },
+      {
+        "id": 12237112,
+        "name": "no ppb",
+        "parameter": {
+          "id": 24,
+          "name": "no",
+          "units": "ppb",
+          "displayName": "NO"
+        }
+      },
+      {
+        "id": 12237113,
+        "name": "no2 ppb",
+        "parameter": {
+          "id": 15,
+          "name": "no2",
+          "units": "ppb",
+          "displayName": "NO\u2082"
+        }
+      },
+      {
+        "id": 1960586,
+        "name": "no2 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 5,
+          "name": "no2",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "NO\u2082 mass"
+        }
+      },
+      {
+        "id": 14341205,
+        "name": "nox ppb",
+        "parameter": {
+          "id": 23,
+          "name": "nox",
+          "units": "ppb",
+          "displayName": "NOX"
+        }
+      },
+      {
+        "id": 12237114,
+        "name": "o3 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 3,
+          "name": "o3",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "O\u2083 mass"
+        }
+      },
+      {
+        "id": 1960600,
+        "name": "o3 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 3,
+          "name": "o3",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "O\u2083 mass"
+        }
+      },
+      {
+        "id": 12237115,
+        "name": "pm10 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 1,
+          "name": "pm10",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "PM10"
+        }
+      },
+      {
+        "id": 1960606,
+        "name": "pm10 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 1,
+          "name": "pm10",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "PM10"
+        }
+      },
+      {
+        "id": 1960587,
+        "name": "pm25 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 2,
+          "name": "pm25",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "PM2.5"
+        }
+      },
+      {
+        "id": 12237116,
+        "name": "pm25 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 2,
+          "name": "pm25",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "PM2.5"
+        }
+      },
+      {
+        "id": 12237117,
+        "name": "relativehumidity %",
+        "parameter": {
+          "id": 98,
+          "name": "relativehumidity",
+          "units": "%",
+          "displayName": "RH"
+        }
+      },
+      {
+        "id": 12237118,
+        "name": "so2 ppb",
+        "parameter": {
+          "id": 101,
+          "name": "so2",
+          "units": "ppb",
+          "displayName": "SO\u2082"
+        }
+      },
+      {
+        "id": 1960599,
+        "name": "so2 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 6,
+          "name": "so2",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "SO\u2082 mass"
+        }
+      },
+      {
+        "id": 12237119,
+        "name": "temperature c",
+        "parameter": {
+          "id": 100,
+          "name": "temperature",
+          "units": "c",
+          "displayName": "Temperature (C)"
+        }
+      },
+      {
+        "id": 14341206,
+        "name": "wind_direction deg",
+        "parameter": {
+          "id": 22,
+          "name": "wind_direction",
+          "units": "deg",
+          "displayName": "Wind direction"
+        }
+      },
+      {
+        "id": 14341207,
+        "name": "wind_speed m/s",
+        "parameter": {
+          "id": 34,
+          "name": "wind_speed",
+          "units": "m/s",
+          "displayName": "Wind speed"
+        }
+      }
+    ]
+  },
+  {
+    "id": 344142,
+    "name": "Nacharam_TSIIC IALA, Hyderabad - TSPCB",
+    "coordinates": {
+      "latitude": 17.429398,
+      "longitude": 78.569354
+    },
+    "sensors": [
+      {
+        "id": 1960601,
+        "name": "co \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 4,
+          "name": "co",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "CO mass"
+        }
+      },
+      {
+        "id": 12237129,
+        "name": "co ppb",
+        "parameter": {
+          "id": 102,
+          "name": "co",
+          "units": "ppb",
+          "displayName": "CO"
+        }
+      },
+      {
+        "id": 12237130,
+        "name": "no ppb",
+        "parameter": {
+          "id": 24,
+          "name": "no",
+          "units": "ppb",
+          "displayName": "NO"
+        }
+      },
+      {
+        "id": 1960613,
+        "name": "no2 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 5,
+          "name": "no2",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "NO\u2082 mass"
+        }
+      },
+      {
+        "id": 12237131,
+        "name": "no2 ppb",
+        "parameter": {
+          "id": 15,
+          "name": "no2",
+          "units": "ppb",
+          "displayName": "NO\u2082"
+        }
+      },
+      {
+        "id": 14341211,
+        "name": "nox ppb",
+        "parameter": {
+          "id": 23,
+          "name": "nox",
+          "units": "ppb",
+          "displayName": "NOX"
+        }
+      },
+      {
+        "id": 1960594,
+        "name": "o3 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 3,
+          "name": "o3",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "O\u2083 mass"
+        }
+      },
+      {
+        "id": 12237132,
+        "name": "o3 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 3,
+          "name": "o3",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "O\u2083 mass"
+        }
+      },
+      {
+        "id": 1960597,
+        "name": "pm10 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 1,
+          "name": "pm10",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "PM10"
+        }
+      },
+      {
+        "id": 12237133,
+        "name": "pm10 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 1,
+          "name": "pm10",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "PM10"
+        }
+      },
+      {
+        "id": 12237134,
+        "name": "pm25 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 2,
+          "name": "pm25",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "PM2.5"
+        }
+      },
+      {
+        "id": 1960609,
+        "name": "pm25 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 2,
+          "name": "pm25",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "PM2.5"
+        }
+      },
+      {
+        "id": 12237135,
+        "name": "relativehumidity %",
+        "parameter": {
+          "id": 98,
+          "name": "relativehumidity",
+          "units": "%",
+          "displayName": "RH"
+        }
+      },
+      {
+        "id": 1960596,
+        "name": "so2 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 6,
+          "name": "so2",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "SO\u2082 mass"
+        }
+      },
+      {
+        "id": 12237136,
+        "name": "so2 ppb",
+        "parameter": {
+          "id": 101,
+          "name": "so2",
+          "units": "ppb",
+          "displayName": "SO\u2082"
+        }
+      },
+      {
+        "id": 12237137,
+        "name": "temperature c",
+        "parameter": {
+          "id": 100,
+          "name": "temperature",
+          "units": "c",
+          "displayName": "Temperature (C)"
+        }
+      },
+      {
+        "id": 14341212,
+        "name": "wind_direction deg",
+        "parameter": {
+          "id": 22,
+          "name": "wind_direction",
+          "units": "deg",
+          "displayName": "Wind direction"
+        }
+      },
+      {
+        "id": 14341213,
+        "name": "wind_speed m/s",
+        "parameter": {
+          "id": 34,
+          "name": "wind_speed",
+          "units": "m/s",
+          "displayName": "Wind speed"
+        }
+      }
+    ]
+  },
+  {
+    "id": 344144,
+    "name": "IITH Kandi, Hyderabad - TSPCB",
+    "coordinates": {
+      "latitude": 17.585704999999997,
+      "longitude": 78.126199
+    },
+    "sensors": [
+      {
+        "id": 12237102,
+        "name": "co ppb",
+        "parameter": {
+          "id": 102,
+          "name": "co",
+          "units": "ppb",
+          "displayName": "CO"
+        }
+      },
+      {
+        "id": 1960591,
+        "name": "co \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 4,
+          "name": "co",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "CO mass"
+        }
+      },
+      {
+        "id": 12237103,
+        "name": "no ppb",
+        "parameter": {
+          "id": 24,
+          "name": "no",
+          "units": "ppb",
+          "displayName": "NO"
+        }
+      },
+      {
+        "id": 1960589,
+        "name": "no2 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 5,
+          "name": "no2",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "NO\u2082 mass"
+        }
+      },
+      {
+        "id": 12237104,
+        "name": "no2 ppb",
+        "parameter": {
+          "id": 15,
+          "name": "no2",
+          "units": "ppb",
+          "displayName": "NO\u2082"
+        }
+      },
+      {
+        "id": 14342157,
+        "name": "nox ppb",
+        "parameter": {
+          "id": 23,
+          "name": "nox",
+          "units": "ppb",
+          "displayName": "NOX"
+        }
+      },
+      {
+        "id": 12237105,
+        "name": "o3 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 3,
+          "name": "o3",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "O\u2083 mass"
+        }
+      },
+      {
+        "id": 1960612,
+        "name": "o3 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 3,
+          "name": "o3",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "O\u2083 mass"
+        }
+      },
+      {
+        "id": 12237106,
+        "name": "pm10 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 1,
+          "name": "pm10",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "PM10"
+        }
+      },
+      {
+        "id": 1960603,
+        "name": "pm10 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 1,
+          "name": "pm10",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "PM10"
+        }
+      },
+      {
+        "id": 1960590,
+        "name": "pm25 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 2,
+          "name": "pm25",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "PM2.5"
+        }
+      },
+      {
+        "id": 12237107,
+        "name": "pm25 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 2,
+          "name": "pm25",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "PM2.5"
+        }
+      },
+      {
+        "id": 12237108,
+        "name": "relativehumidity %",
+        "parameter": {
+          "id": 98,
+          "name": "relativehumidity",
+          "units": "%",
+          "displayName": "RH"
+        }
+      },
+      {
+        "id": 1960593,
+        "name": "so2 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 6,
+          "name": "so2",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "SO\u2082 mass"
+        }
+      },
+      {
+        "id": 12237109,
+        "name": "so2 ppb",
+        "parameter": {
+          "id": 101,
+          "name": "so2",
+          "units": "ppb",
+          "displayName": "SO\u2082"
+        }
+      },
+      {
+        "id": 12237110,
+        "name": "temperature c",
+        "parameter": {
+          "id": 100,
+          "name": "temperature",
+          "units": "c",
+          "displayName": "Temperature (C)"
+        }
+      },
+      {
+        "id": 14342158,
+        "name": "wind_direction deg",
+        "parameter": {
+          "id": 22,
+          "name": "wind_direction",
+          "units": "deg",
+          "displayName": "Wind direction"
+        }
+      },
+      {
+        "id": 14342159,
+        "name": "wind_speed m/s",
+        "parameter": {
+          "id": 34,
+          "name": "wind_speed",
+          "units": "m/s",
+          "displayName": "Wind speed"
+        }
+      }
+    ]
+  },
+  {
+    "id": 346257,
+    "name": "Ramachandrapuram, Hyderabad - TSPCB",
+    "coordinates": {
+      "latitude": 17.528544,
+      "longitude": 78.28619499999999
+    },
+    "sensors": [
+      {
+        "id": 1970972,
+        "name": "co \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 4,
+          "name": "co",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "CO mass"
+        }
+      },
+      {
+        "id": 12242159,
+        "name": "co ppb",
+        "parameter": {
+          "id": 102,
+          "name": "co",
+          "units": "ppb",
+          "displayName": "CO"
+        }
+      },
+      {
+        "id": 12242160,
+        "name": "no ppb",
+        "parameter": {
+          "id": 24,
+          "name": "no",
+          "units": "ppb",
+          "displayName": "NO"
+        }
+      },
+      {
+        "id": 12242161,
+        "name": "no2 ppb",
+        "parameter": {
+          "id": 15,
+          "name": "no2",
+          "units": "ppb",
+          "displayName": "NO\u2082"
+        }
+      },
+      {
+        "id": 1970971,
+        "name": "no2 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 5,
+          "name": "no2",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "NO\u2082 mass"
+        }
+      },
+      {
+        "id": 14341217,
+        "name": "nox ppb",
+        "parameter": {
+          "id": 23,
+          "name": "nox",
+          "units": "ppb",
+          "displayName": "NOX"
+        }
+      },
+      {
+        "id": 1970974,
+        "name": "o3 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 3,
+          "name": "o3",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "O\u2083 mass"
+        }
+      },
+      {
+        "id": 12242162,
+        "name": "o3 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 3,
+          "name": "o3",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "O\u2083 mass"
+        }
+      },
+      {
+        "id": 1970973,
+        "name": "pm10 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 1,
+          "name": "pm10",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "PM10"
+        }
+      },
+      {
+        "id": 12242163,
+        "name": "pm10 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 1,
+          "name": "pm10",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "PM10"
+        }
+      },
+      {
+        "id": 1970968,
+        "name": "pm25 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 2,
+          "name": "pm25",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "PM2.5"
+        }
+      },
+      {
+        "id": 12242164,
+        "name": "pm25 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 2,
+          "name": "pm25",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "PM2.5"
+        }
+      },
+      {
+        "id": 12242165,
+        "name": "relativehumidity %",
+        "parameter": {
+          "id": 98,
+          "name": "relativehumidity",
+          "units": "%",
+          "displayName": "RH"
+        }
+      },
+      {
+        "id": 1970965,
+        "name": "so2 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 6,
+          "name": "so2",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "SO\u2082 mass"
+        }
+      },
+      {
+        "id": 12242166,
+        "name": "so2 ppb",
+        "parameter": {
+          "id": 101,
+          "name": "so2",
+          "units": "ppb",
+          "displayName": "SO\u2082"
+        }
+      },
+      {
+        "id": 12242167,
+        "name": "temperature c",
+        "parameter": {
+          "id": 100,
+          "name": "temperature",
+          "units": "c",
+          "displayName": "Temperature (C)"
+        }
+      },
+      {
+        "id": 14341218,
+        "name": "wind_direction deg",
+        "parameter": {
+          "id": 22,
+          "name": "wind_direction",
+          "units": "deg",
+          "displayName": "Wind direction"
+        }
+      },
+      {
+        "id": 14341219,
+        "name": "wind_speed m/s",
+        "parameter": {
+          "id": 34,
+          "name": "wind_speed",
+          "units": "m/s",
+          "displayName": "Wind speed"
+        }
+      }
+    ]
+  },
+  {
+    "id": 346258,
+    "name": "Kokapet, Hyderabad - TSPCB",
+    "coordinates": {
+      "latitude": 17.393559,
+      "longitude": 78.33919399999999
+    },
+    "sensors": [
+      {
+        "id": 1970967,
+        "name": "co \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 4,
+          "name": "co",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "CO mass"
+        }
+      },
+      {
+        "id": 12237156,
+        "name": "co ppb",
+        "parameter": {
+          "id": 102,
+          "name": "co",
+          "units": "ppb",
+          "displayName": "CO"
+        }
+      },
+      {
+        "id": 12237157,
+        "name": "no ppb",
+        "parameter": {
+          "id": 24,
+          "name": "no",
+          "units": "ppb",
+          "displayName": "NO"
+        }
+      },
+      {
+        "id": 1970969,
+        "name": "no2 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 5,
+          "name": "no2",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "NO\u2082 mass"
+        }
+      },
+      {
+        "id": 12237158,
+        "name": "no2 ppb",
+        "parameter": {
+          "id": 15,
+          "name": "no2",
+          "units": "ppb",
+          "displayName": "NO\u2082"
+        }
+      },
+      {
+        "id": 14341223,
+        "name": "nox ppb",
+        "parameter": {
+          "id": 23,
+          "name": "nox",
+          "units": "ppb",
+          "displayName": "NOX"
+        }
+      },
+      {
+        "id": 12237159,
+        "name": "o3 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 3,
+          "name": "o3",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "O\u2083 mass"
+        }
+      },
+      {
+        "id": 12237160,
+        "name": "pm10 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 1,
+          "name": "pm10",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "PM10"
+        }
+      },
+      {
+        "id": 1970966,
+        "name": "pm10 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 1,
+          "name": "pm10",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "PM10"
+        }
+      },
+      {
+        "id": 12237161,
+        "name": "pm25 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 2,
+          "name": "pm25",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "PM2.5"
+        }
+      },
+      {
+        "id": 1970970,
+        "name": "pm25 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 2,
+          "name": "pm25",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "PM2.5"
+        }
+      },
+      {
+        "id": 12237162,
+        "name": "relativehumidity %",
+        "parameter": {
+          "id": 98,
+          "name": "relativehumidity",
+          "units": "%",
+          "displayName": "RH"
+        }
+      },
+      {
+        "id": 1970975,
+        "name": "so2 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 6,
+          "name": "so2",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "SO\u2082 mass"
+        }
+      },
+      {
+        "id": 12237163,
+        "name": "so2 ppb",
+        "parameter": {
+          "id": 101,
+          "name": "so2",
+          "units": "ppb",
+          "displayName": "SO\u2082"
+        }
+      },
+      {
+        "id": 12237164,
+        "name": "temperature c",
+        "parameter": {
+          "id": 100,
+          "name": "temperature",
+          "units": "c",
+          "displayName": "Temperature (C)"
+        }
+      },
+      {
+        "id": 14341224,
+        "name": "wind_direction deg",
+        "parameter": {
+          "id": 22,
+          "name": "wind_direction",
+          "units": "deg",
+          "displayName": "Wind direction"
+        }
+      },
+      {
+        "id": 14341225,
+        "name": "wind_speed m/s",
+        "parameter": {
+          "id": 34,
+          "name": "wind_speed",
+          "units": "m/s",
+          "displayName": "Wind speed"
+        }
+      }
+    ]
+  },
+  {
+    "id": 352465,
+    "name": "New Malakpet, Hyderabad - TSPCB",
+    "coordinates": {
+      "latitude": 17.37206,
+      "longitude": 78.50864
+    },
+    "sensors": [
+      {
+        "id": 12237084,
+        "name": "co ppb",
+        "parameter": {
+          "id": 102,
+          "name": "co",
+          "units": "ppb",
+          "displayName": "CO"
+        }
+      },
+      {
+        "id": 2002324,
+        "name": "co \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 4,
+          "name": "co",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "CO mass"
+        }
+      },
+      {
+        "id": 12237085,
+        "name": "no ppb",
+        "parameter": {
+          "id": 24,
+          "name": "no",
+          "units": "ppb",
+          "displayName": "NO"
+        }
+      },
+      {
+        "id": 2002328,
+        "name": "no2 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 5,
+          "name": "no2",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "NO\u2082 mass"
+        }
+      },
+      {
+        "id": 12237086,
+        "name": "no2 ppb",
+        "parameter": {
+          "id": 15,
+          "name": "no2",
+          "units": "ppb",
+          "displayName": "NO\u2082"
+        }
+      },
+      {
+        "id": 14341199,
+        "name": "nox ppb",
+        "parameter": {
+          "id": 23,
+          "name": "nox",
+          "units": "ppb",
+          "displayName": "NOX"
+        }
+      },
+      {
+        "id": 2002325,
+        "name": "o3 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 3,
+          "name": "o3",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "O\u2083 mass"
+        }
+      },
+      {
+        "id": 12237087,
+        "name": "o3 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 3,
+          "name": "o3",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "O\u2083 mass"
+        }
+      },
+      {
+        "id": 2002329,
+        "name": "pm10 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 1,
+          "name": "pm10",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "PM10"
+        }
+      },
+      {
+        "id": 12237088,
+        "name": "pm10 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 1,
+          "name": "pm10",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "PM10"
+        }
+      },
+      {
+        "id": 12237089,
+        "name": "pm25 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 2,
+          "name": "pm25",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "PM2.5"
+        }
+      },
+      {
+        "id": 2002327,
+        "name": "pm25 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 2,
+          "name": "pm25",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "PM2.5"
+        }
+      },
+      {
+        "id": 12237090,
+        "name": "relativehumidity %",
+        "parameter": {
+          "id": 98,
+          "name": "relativehumidity",
+          "units": "%",
+          "displayName": "RH"
+        }
+      },
+      {
+        "id": 2002326,
+        "name": "so2 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 6,
+          "name": "so2",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "SO\u2082 mass"
+        }
+      },
+      {
+        "id": 12237091,
+        "name": "so2 ppb",
+        "parameter": {
+          "id": 101,
+          "name": "so2",
+          "units": "ppb",
+          "displayName": "SO\u2082"
+        }
+      },
+      {
+        "id": 12237092,
+        "name": "temperature c",
+        "parameter": {
+          "id": 100,
+          "name": "temperature",
+          "units": "c",
+          "displayName": "Temperature (C)"
+        }
+      },
+      {
+        "id": 14341200,
+        "name": "wind_direction deg",
+        "parameter": {
+          "id": 22,
+          "name": "wind_direction",
+          "units": "deg",
+          "displayName": "Wind direction"
+        }
+      },
+      {
+        "id": 14341201,
+        "name": "wind_speed m/s",
+        "parameter": {
+          "id": 34,
+          "name": "wind_speed",
+          "units": "m/s",
+          "displayName": "Wind speed"
+        }
+      }
+    ]
+  },
+  {
+    "id": 4720578,
+    "name": "Hyderabad",
+    "coordinates": {
+      "latitude": 17.492676,
+      "longitude": 78.405394
+    },
+    "sensors": [
+      {
+        "id": 13317466,
+        "name": "pm1 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 19,
+          "name": "pm1",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "PM1"
+        }
+      },
+      {
+        "id": 13317467,
+        "name": "pm25 \u00b5g/m\u00b3",
+        "parameter": {
+          "id": 2,
+          "name": "pm25",
+          "units": "\u00b5g/m\u00b3",
+          "displayName": "PM2.5"
+        }
+      },
+      {
+        "id": 13317468,
+        "name": "relativehumidity %",
+        "parameter": {
+          "id": 98,
+          "name": "relativehumidity",
+          "units": "%",
+          "displayName": "RH"
+        }
+      },
+      {
+        "id": 13317469,
+        "name": "temperature c",
+        "parameter": {
+          "id": 100,
+          "name": "temperature",
+          "units": "c",
+          "displayName": "Temperature (C)"
+        }
+      },
+      {
+        "id": 13317470,
+        "name": "um003 particles/cm\u00b3",
+        "parameter": {
+          "id": 125,
+          "name": "um003",
+          "units": "particles/cm\u00b3",
+          "displayName": "PM0.3 count"
+        }
+      }
+    ]
+  }
+]
