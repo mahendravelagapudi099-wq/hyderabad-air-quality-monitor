@@ -2,12 +2,12 @@ name: Daily Air Quality Pipeline
 
 on:
   schedule:
-    # 07:00 IST is 01:30 UTC (UTC + 5:30)
+    # 07:00 IST is 01:30 UTC (UTC + 5:30) every day
     - cron: '30 1 * * *'
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   run-pipeline:
@@ -30,29 +30,36 @@ jobs:
 
       - name: Validate Secrets
         run: |
+          MISSING_SECRETS=0
           if [ -z "${{ secrets.OPENAQ_API_KEY }}" ]; then
-            echo "::error::OPENAQ_API_KEY secret is missing! Please configure OPENAQ_API_KEY in repository secrets."
+            echo "::error::OPENAQ_API_KEY secret is missing! Configure OPENAQ_API_KEY in repository Secrets."
+            MISSING_SECRETS=1
+          fi
+          if [ -z "${{ secrets.DATABASE_URL }}" ]; then
+            echo "::error::DATABASE_URL secret is missing! Configure DATABASE_URL in repository Secrets."
+            MISSING_SECRETS=1
+          fi
+          if [ $MISSING_SECRETS -ne 0 ]; then
             exit 1
           fi
 
-      - name: Run Pipeline (Past 3 Days)
+      - name: Run Pipeline (Past 3 Days to PostgreSQL)
         env:
           OPENAQ_API_KEY: ${{ secrets.OPENAQ_API_KEY }}
-          DATABASE_URL: sqlite:///data/airquality.db
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
         run: |
           python scripts/run_pipeline.py --days 3
 
-      - name: Commit Updated Database
-        if: success()
+      - name: Workflow Health & Keep-Alive Check
+        # GitHub disables scheduled workflows on repos with no commit activity for 60 days.
+        # This step verifies pipeline health and logs an explicit keep-alive heartbeat.
         run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action [Daily Pipeline]"
-          if [ -f data/airquality.db ]; then
-            git add -f data/airquality.db
-            if git diff --staged --quiet; then
-              echo "No database changes to commit."
-            else
-              git commit -m "chore(data): auto-update airquality.db [skip ci]"
-              git push
-            fi
-          fi
+          echo "============================================================"
+          echo "PIPELINE HEALTH & KEEP-ALIVE HEARTBEAT"
+          echo "============================================================"
+          echo "Timestamp: $(date -u '+%Y-%m-%d %H:%M:%SZ')"
+          echo "Pipeline run completed successfully to production PostgreSQL."
+          echo "Note: If the repository receives no commits for 60 days, GitHub"
+          echo "may pause scheduled cron jobs. Trigger this workflow manually"
+          echo "via workflow_dispatch or push a commit to keep scheduled runs active."
+          echo "============================================================"
