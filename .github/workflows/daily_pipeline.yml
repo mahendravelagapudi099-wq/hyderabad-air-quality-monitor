@@ -1,0 +1,58 @@
+name: Daily Air Quality Pipeline
+
+on:
+  schedule:
+    # 07:00 IST is 01:30 UTC (UTC + 5:30)
+    - cron: '30 1 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  run-pipeline:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Validate Secrets
+        run: |
+          if [ -z "${{ secrets.OPENAQ_API_KEY }}" ]; then
+            echo "::error::OPENAQ_API_KEY secret is missing! Please configure OPENAQ_API_KEY in repository secrets."
+            exit 1
+          fi
+
+      - name: Run Pipeline (Past 3 Days)
+        env:
+          OPENAQ_API_KEY: ${{ secrets.OPENAQ_API_KEY }}
+          DATABASE_URL: sqlite:///data/airquality.db
+        run: |
+          python scripts/run_pipeline.py --days 3
+
+      - name: Commit Updated Database
+        if: success()
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action [Daily Pipeline]"
+          if [ -f data/airquality.db ]; then
+            git add -f data/airquality.db
+            if git diff --staged --quiet; then
+              echo "No database changes to commit."
+            else
+              git commit -m "chore(data): auto-update airquality.db [skip ci]"
+              git push
+            fi
+          fi
