@@ -6,8 +6,7 @@ An autonomous data-engineering pipeline tracking real-time and historical air qu
 
 ## Live Dashboard
 
-🔗 **Live Streamlit App**: `[Deploying on Streamlit Community Cloud - Link Pending]`  
-*(Follow the [Streamlit Cloud Deployment Guide](#streamlit-community-cloud-deployment) below to deploy).*
+🔗 **Live Streamlit App**: [https://hyderabad-air-quality-monitor.streamlit.app/](https://hyderabad-air-quality-monitor.streamlit.app/)
 
 ---
 
