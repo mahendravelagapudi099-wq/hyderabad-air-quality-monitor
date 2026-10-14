@@ -16,21 +16,49 @@ DATA_DIR.mkdir(parents=True, exist_ok=True)
 load_dotenv(PROJECT_ROOT / ".env")
 
 
+def get_database_url() -> str:
+    """Retrieve DATABASE_URL from env or Streamlit secrets, normalizing postgres:// to postgresql://."""
+    url = os.getenv("DATABASE_URL")
+    if not url:
+        try:
+            import streamlit as st
+            if hasattr(st, "secrets") and "DATABASE_URL" in st.secrets:
+                url = st.secrets["DATABASE_URL"]
+        except Exception:
+            pass
+    if not url:
+        url = f"sqlite:///{DATA_DIR / 'airquality.db'}"
+    if url.startswith("postgres://"):
+        url = url.replace("postgres://", "postgresql://", 1)
+    return url
+
+
+def get_openaq_api_key() -> str:
+    """Retrieve OPENAQ_API_KEY from env or Streamlit secrets."""
+    key = os.getenv("OPENAQ_API_KEY")
+    if not key:
+        try:
+            import streamlit as st
+            if hasattr(st, "secrets") and "OPENAQ_API_KEY" in st.secrets:
+                key = st.secrets["OPENAQ_API_KEY"]
+        except Exception:
+            pass
+    return key or ""
+
+
 @dataclass(frozen=True)
 class Settings:
     """Application configuration settings."""
 
     # API Configuration
-    OPENAQ_API_KEY: str = os.getenv("OPENAQ_API_KEY", "")
+    OPENAQ_API_KEY: str = get_openaq_api_key()
     OPENAQ_BASE_URL: str = os.getenv("OPENAQ_BASE_URL", "https://api.openaq.org/v3")
     API_TIMEOUT_SECONDS: int = int(os.getenv("API_TIMEOUT_SECONDS", "20"))
     MAX_RETRIES: int = int(os.getenv("MAX_RETRIES", "4"))
     BACKOFF_FACTOR: float = float(os.getenv("BACKOFF_FACTOR", "2.0"))
 
     # Database Configuration (PostgreSQL-ready, default SQLite)
-    DATABASE_URL: str = os.getenv(
-        "DATABASE_URL", f"sqlite:///{DATA_DIR / 'airquality.db'}"
-    )
+    DATABASE_URL: str = get_database_url()
 
     # Geographic Bounds for Hyderabad and outskirts
     # Bounding Box format: min_lon, min_lat, max_lon, max_lat
