@@ -17,9 +17,14 @@ from src.database import (
 )
 from src.models import Base, Location, Measurement, Sensor
 
-POSTGRES_URL = os.getenv("TEST_POSTGRES_URL") or os.getenv("POSTGRES_DATABASE_URL")
+POSTGRES_URL = os.getenv("TEST_POSTGRES_URL") or os.getenv("POSTGRES_DATABASE_URL") or os.getenv("DATABASE_URL")
 if POSTGRES_URL and POSTGRES_URL.startswith("postgres://"):
-    POSTGRES_URL = POSTGRES_URL.replace("postgres://", "postgresql://", 1)
+    POSTGRES_URL = POSTGRES_URL.replace("postgres://", "postgresql+psycopg2://", 1)
+elif POSTGRES_URL and POSTGRES_URL.startswith("postgresql://") and not POSTGRES_URL.startswith("postgresql+"):
+    POSTGRES_URL = POSTGRES_URL.replace("postgresql://", "postgresql+psycopg2://", 1)
+# Skip if the URL is SQLite (e.g. default fallback)
+if POSTGRES_URL and POSTGRES_URL.startswith("sqlite"):
+    POSTGRES_URL = None
 
 
 @pytest.mark.skipif(
