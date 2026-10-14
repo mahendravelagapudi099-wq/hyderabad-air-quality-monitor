@@ -64,16 +64,16 @@ flowchart TD
 
 | Metric | Measured Value |
 |---|---|
-| **Monitoring Stations Tracked** | `20` (TSPCB & regional stations) |
-| **Sensors Mapped** | `272` sensors |
-| **Total Telemetry Collected** | `10,261` records |
-| **Active Time Horizon** | `2.8 days` (2026-10-11 00:30 UTC to 2026-10-13 18:30 UTC) |
-| **Total Rows Processed** | `10,489` records |
+| **Monitoring Stations Tracked** | `21` (TSPCB & regional stations) |
+| **Sensors Mapped** | `273` sensors |
+| **Total Telemetry Collected** | `10,262` records |
+| **Active Time Horizon** | `3.5 days` (2026-10-11 00:30 UTC to 2026-10-14 12:00 UTC) |
+| **Total Rows Processed** | `10,717` records |
 | **Missing-Data / Rejection Rate** | `0.00%` (0 invalid/malformed records) |
 | **Statistical Anomalies Flagged** | `148` readings (Rolling MAD > 3.5, $\ge 48$ obs) |
-| **Pipeline Workflow Runs** | `2` executions |
+| **Pipeline Workflow Runs** | `3` executions |
 | **Workflow Success Rate** | `100.0%` |
-| **Automated Test Suite** | `25 passed, 2 skipped` (100% pass rate) |
+| **Automated Test Suite** | `27 passed` (100% pass rate) |
 
 ---
 

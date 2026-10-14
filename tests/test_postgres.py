@@ -35,7 +35,8 @@ class TestPostgresIntegration:
     """PostgreSQL integration suite."""
 
     @pytest.fixture(scope="class")
-    def pg_engine(self):
+    @classmethod
+    def pg_engine(cls):
         engine = create_engine(POSTGRES_URL, pool_pre_ping=True)
         Base.metadata.create_all(bind=engine)
         yield engine
