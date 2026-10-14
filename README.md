@@ -245,10 +245,26 @@ The scheduled pipeline is configured in [`.github/workflows/daily_pipeline.yml`]
 
 ## Dashboard Screenshots
 
-*(Screenshots will be added upon deployment)*
-- **Overview & Automated Insights**: Real-time KPI gauges and narrative telemetry trends.
-- **Pollutant Trends**: Interactive Plotly time-series with segregated pollutant units.
-- **Station Comparisons**: Comparative bar charts and monitoring station table.
-- **Data Explorer**: Search, multi-filter, and one-click CSV export.
-- **Statistical Anomalies**: Filterable table by severity (High, Medium, Low) with baseline medians.
-- **Pipeline Health**: 30-run execution throughput vs rejection rate, success rate, and data quality logs.
+### 1. Overview & Automated Insights
+Real-time KPI metric gauges, regional station coverage summaries, and deterministic telemetry narratives.
+![Overview & Automated Insights](docs/screenshots/overview_insights.png)
+
+### 2. Pollutant Trends
+Interactive Plotly multi-station time-series segregating particulate matter ($\text{PM}_{2.5}$ & $\text{PM}_{10}$ in $\mu\text{g/m}^3$) and gaseous pollutants.
+![Pollutant Trends](docs/screenshots/pollutant_trends.png)
+
+### 3. Station Comparisons
+Comparative mean pollutant concentrations across all active Telangana monitoring stations.
+![Station Comparisons](docs/screenshots/station_comparisons.png)
+
+### 4. Interactive Data Explorer
+Filterable tabular view by station, parameter, quality flag, and timeframe with one-click CSV export.
+![Data Explorer](docs/screenshots/data_explorer.png)
+
+### 5. Flagged Statistical Anomalies
+Mathematical outliers detected using rolling Median Absolute Deviation ($\text{MAD} > 3.5$, $\ge 48$ historical observations guardrail) categorized by severity.
+![Statistical Anomalies](docs/screenshots/statistical_anomalies.png)
+
+### 6. Pipeline Health & Quality Audits
+Execution logs, throughput history, zero rejection verification, and automated data quality audits.
+![Pipeline Health](docs/screenshots/pipeline_health.png)
